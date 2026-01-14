@@ -19,11 +19,14 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void PostInitializeComponents() override;
 
     UPROPERTY(VisibleAnywhere, Category= "Components")
 	UPawnSensingComponent* PawnSensingComp;
 	UFUNCTION()
 	void OnPawnSeen(APawn* SeenPawn);
+	UFUNCTION()
+	void OnNoiseHear(APawn* HearInstigator, const FVector& Location, float Volume);
 
 public:
 	// Called every frame
